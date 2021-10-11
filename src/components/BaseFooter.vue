@@ -1,13 +1,13 @@
 <template>
   <footer class="base-footer">
-    Property of ROECKER Benjamin and Antoine RECIO ANDRADES | © 2021 
+    Property of ROECKER Benjamin and Antoine RECIO ANDRADES | © 2021
   </footer>
 </template>
 
 <script>
 export default {
-  name: 'BaseFooter'
-}
+  name: "BaseFooter",
+};
 </script>
 
 <style scoped>

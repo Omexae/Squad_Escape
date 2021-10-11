@@ -1,20 +1,17 @@
 <template>
-<<<<<<< HEAD
-  <router-view />
-=======
   <div id="nav">
     <base-header></base-header>
     <base-footer></base-footer>
   </div>
->>>>>>> 7fc48b0aaeebad4655d289bb4e33ab58d20af46c
+  <router-view />
 </template>
 <script>
 import BaseHeader from "./components/BaseHeader.vue";
 import BaseFooter from "./components/BaseFooter.vue";
-export default({
-  name: 'App',
-  components:{BaseHeader,BaseFooter}
-})
+export default {
+  name: "App",
+  components: { BaseHeader, BaseFooter },
+};
 </script>
 <style>
 #app {
