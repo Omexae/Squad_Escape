@@ -1,5 +1,7 @@
 <template>
-     <h2>Login Page</h2><br>    
+    <div>
+        <div id="Form">
+            <h2>Login Page</h2><br>    
             <div class="login">    
             <form id="login" method="get" action="login.php">    
                 <label><b>User Name     
@@ -11,22 +13,22 @@
                 </b>    
                 </label>    
                 <input type="Password" name="Pass" id="Pass" placeholder="Password">    
-                <br><br>
-                 <label><b>Confirm Password     
-                </b>    
-                </label>    
-                <input type="CPassword" name="CPass" id="CPass" placeholder="Confirm password">    
-                <br><br>        
-                <input type="button" name="CreateAccount" id="createacc" value="Sign in">       
-                <br><br>       
+                <br><br>    
+                <input type="button" name="log" id="log" value="Log In Here">       
+                <br><br>    
+                <input type="checkbox" id="check">    
+                <span>Remember me</span>    
+                <br><br>    
                 Forgot <a href="#">Password</a>    
             </form>     
             </div>    
+        </div>
+    </div>
 </template>
 
 <script>
 export default {
-  name: "CreateAccount",
+  name: "LoginPage",
 };
 </script>
 
@@ -57,7 +59,7 @@ label{
     border-radius: 3px;  
     padding-left: 8px;  
 }  
-#Pass, #CPass{  
+#Pass{  
     width: 300px;  
     height: 30px;  
     border: none;  
@@ -65,7 +67,7 @@ label{
     padding-left: 8px;  
       
 }  
-#createacc{  
+#log{  
     width: 300px;  
     height: 30px;  
     border: none;  
