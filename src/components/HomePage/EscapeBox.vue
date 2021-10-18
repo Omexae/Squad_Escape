@@ -1,5 +1,5 @@
 <template>
-  <div :style="'background-image : url(' + url + ');'" id="visible" class="box">
+  <div :style="'background-image : url(' + url + ');'" class="box">
     <div class="display">
       <h2>{{ title }}</h2>
       <div class="enddisplay">
@@ -28,18 +28,13 @@ export default {
 
 <style scoped>
 .box {
-  background-color: #cccccc;
   border-radius: 25px;
-  box-shadow: #999999 5px 5px 10px, #eeeeee -5px -5px 10px;
   color: white;
-  display: flex;
-}
-
-#visible {
   display: flex;
   flex-direction: column;
   text-align: center;
 }
+
 .hidden {
   display: flex;
   align-items: flex-start;
@@ -51,26 +46,25 @@ export default {
   padding: 5px;
   color: black;
 }
-.box:hover {
-  box-shadow: #999999 -5px -5px 10px, #eeeeee 5px 5px 10px;
-}
 
 .box:hover .hidden {
   display: block;
 }
 button {
-  background-color: #cccccc;
+  background-color: #020059;
   height: 30px;
   width: 100px;
   border-radius: 15px;
   border: none;
   margin: 5px;
   align-self: flex-end;
+  color: white;
 }
 
 button:hover {
   border: #cccccc solid;
   background-color: white;
+  color: #020059;
 }
 
 .display {
