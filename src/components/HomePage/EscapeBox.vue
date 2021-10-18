@@ -1,8 +1,11 @@
 <template>
   <div :style="'background-image : url(' + url + ');'" id="visible" class="box">
-    <div>
+    <div class="display">
       <h2>{{ title }}</h2>
-      <p>{{ prix }} euro</p>
+      <div class="enddisplay">
+        <p>{{ prix }}</p>
+        <button>S'inscrire</button>
+      </div>
     </div>
     <div class="hidden">
       <p>{{ message }}</p>
@@ -28,16 +31,10 @@ export default {
   background-color: #cccccc;
   border-radius: 25px;
   box-shadow: #999999 5px 5px 10px, #eeeeee -5px -5px 10px;
-  width: 300px;
   color: white;
+  display: flex;
 }
 
-.hidden {
-  background-color: white;
-  width: 270px;
-  padding: 5px;
-  color: black;
-}
 #visible {
   display: flex;
   flex-direction: column;
@@ -45,10 +42,41 @@ export default {
 }
 .hidden {
   display: flex;
-  width: 100%;
+  align-items: flex-start;
   border-radius: 25px;
+  display: none;
+  text-align: justify;
+  background-color: white;
+  width: 99%;
+  padding: 5px;
+  color: black;
 }
 .box:hover {
   box-shadow: #999999 -5px -5px 10px, #eeeeee 5px 5px 10px;
+}
+
+.box:hover .hidden {
+  display: block;
+}
+button {
+  background-color: #cccccc;
+  height: 30px;
+  width: 100px;
+  border-radius: 15px;
+  border: none;
+  margin: 5px;
+  align-self: flex-end;
+}
+
+button:hover {
+  border: #cccccc solid;
+  background-color: white;
+}
+
+.display {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 </style>
