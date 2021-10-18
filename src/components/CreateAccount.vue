@@ -1,7 +1,7 @@
 <template>
-     <h2>Login Page</h2><br>    
-            <div class="login">    
-            <form id="login" method="get" action="login.php">    
+     <h2>Account creation page</h2><br>    
+            <div class="createaccount">    
+            <form id="account" method="get">    
                 <label><b>User Name     
                 </b>    
                 </label>    
@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style>
-.login{  
+.createaccount{  
         width: 382px;  
         overflow: hidden;  
         margin: auto;  
