@@ -1,4 +1,4 @@
-<template id="page">
+<template>
   <div class="home">
     <EscapeBox
       class="Box"
@@ -20,6 +20,7 @@
 <script>
 // @ is an alias to /src
 import EscapeBox from "../components/HomePage/EscapeBox.vue";
+
 export default {
   name: "Home",
   components: {
@@ -30,19 +31,13 @@ export default {
 
 <style scoped>
 .home {
-  background-color: #cccccc;
-  width: 80%;
-  height: 1080px;
+  width: 95%;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
 .Box {
   margin: 20px;
   padding: 10px;
-}
-#page {
-  display: flex;
-  align-items: center;
-  align-self: center;
 }
 </style>
