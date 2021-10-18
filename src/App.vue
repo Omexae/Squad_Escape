@@ -2,14 +2,20 @@
   <div id="nav">
     <base-header></base-header>
     <base-footer></base-footer>
+    <router-link to="/loginpage">Go login</router-link>
+    <router-link to="/register">Go to register</router-link>
   </div>
-  <router-view />
+  <router-view></router-view>
 </template>
 
 <script>
 import BaseHeader from "./components/BaseHeader.vue";
 import BaseFooter from "./components/BaseFooter.vue";
-
+import LoginPage from "./components/LoginPage.vue";
+import CreateAccount from './components/CreateAccount.vue';
+const routes = [
+  { path: "/loginpage", component: LoginPage },
+  { path: "/register", component: CreateAccount}];
 export default {
   name: "App",
   components: { BaseHeader, BaseFooter },
