@@ -11,11 +11,6 @@
 <script>
 import BaseHeader from "./components/BaseHeader.vue";
 import BaseFooter from "./components/BaseFooter.vue";
-import LoginPage from "./components/LoginPage.vue";
-import CreateAccount from './components/CreateAccount.vue';
-const routes = [
-  { path: "/loginpage", component: LoginPage },
-  { path: "/register", component: CreateAccount}];
 export default {
   name: "App",
   components: { BaseHeader, BaseFooter },
