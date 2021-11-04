@@ -1,7 +1,7 @@
 <template>
   <header class="base-header">
     <div class="header-content">
-      <font-awesome-icon class="icon" :icon="['fas', 'home']" /> Home
+      <a href="#">Home</a>
       <div class="separator" />
       <div class="logo">LOGO</div>
       <div class="separator" />
