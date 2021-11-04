@@ -40,7 +40,10 @@ const actions = {
 
 const mutations = {
   pushEscapeToReservation(state, { id }) {
-    state.reserve.push({ id });
+    const ids = state.reserve.map((el) => el.id);
+    if (!ids.includes(id)) {
+      state.reserve.push({ id });
+    }
     console.log(state.reserve);
   },
   setCheckoutStatus(state, status) {
