@@ -16,7 +16,7 @@
           <input type="checkbox" id="Check" />
           <span>Remember me</span>
           <br /><br />
-          Forgot <a href="#">Password</a>
+          <a href="#">Forgot Password</a>
         </form>
       </div>
     </div>
