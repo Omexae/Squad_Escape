@@ -2,14 +2,15 @@
   <div id="nav">
     <base-header></base-header>
     <base-footer></base-footer>
+    <router-link to="/loginpage">Go login</router-link>
+    <router-link to="/register">Go to register</router-link>
   </div>
-  <router-view />
+  <router-view></router-view>
 </template>
 
 <script>
 import BaseHeader from "./components/BaseHeader.vue";
 import BaseFooter from "./components/BaseFooter.vue";
-
 export default {
   name: "App",
   components: { BaseHeader, BaseFooter },
