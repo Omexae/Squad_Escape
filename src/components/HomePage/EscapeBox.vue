@@ -1,28 +1,28 @@
 <template>
-  <div :style="'background-image : url(' + url + ');'" class="box">
+  <div :style="'background-image : url(' + escape.url + ');'" class="box">
     <div class="display">
-      <h2>{{ title }}</h2>
+      <h2>{{ escape.title }}</h2>
       <div class="enddisplay">
-        <p>{{ prix }}</p>
-        <button>S'inscrire</button>
+        <p>{{ escape.prix }}</p>
+        <button @click="addEscapeToReservation(escape)">s'inscrire</button>
       </div>
     </div>
     <div class="hidden">
-      <p>{{ message }}</p>
+      <p>{{ escape.message }}</p>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "EscapeBox",
   components: {},
   props: {
-    title: String,
-    message: String,
-    prix: Int32Array,
-    url: String,
+    escape: Object,
   },
+  methods: mapActions("reservation", ["addEscapeToReservation"]),
 };
 </script>
 
