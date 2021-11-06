@@ -11,7 +11,7 @@
           <label><b>Password </b> </label>
           <input type="password" name="password" v-model="input.password" id="Password" placeholder="Password" />
           <br /><br />
-          <input type="button" name="log" id="Log" v-on:click="login()" value="Log In Here" />
+          <input type="button" name="log" id="Log" v-on:click="login()" @click="$router.push({name: 'Home'})" value="Log In Here" />
           <br /><br />
           <input type="checkbox" id="Check" />
           <span>Remember me</span>
@@ -27,11 +27,12 @@
 export default {
   name: "login",
   data() {
-            return {
-                input: {
-                    username: "",
-                    password: ""
-                }
+    return {
+        input: {
+                  username: "",
+                  password: ""
+                },
+        IsLoggedIn : false,
             }
         },
         methods: {
@@ -40,7 +41,8 @@ export default {
                     if(this.input.username == "user"/*this.$parent.mockAccount.username*/ && this.input.password == "password"/*this.$parent.mockAccount.password*/) {
                         //this.$emit("authenticated", true);
                         console.log("connected")
-                        IsLoggedIn = true;
+                        this.IsLoggedIn = true;
+                        console.log(this.IsLoggedIn);
                     } else {
                         console.log("The username and / or password is incorrect");
                     }

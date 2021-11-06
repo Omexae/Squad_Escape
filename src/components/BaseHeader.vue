@@ -5,15 +5,29 @@
       <div class="separator" />
       <div class="logo">LOGO</div>
       <div class="separator" />
-      <font-awesome-icon class="icon" :icon="['fas', 'user']" />
-      Not yet logged in
+      <div v-if="IsLoggedIn == false">
+        <font-awesome-icon class="icon" :icon="['fas', 'user']" />
+        Not yet logged in
+      </div>
+      <div v-else>
+        Account
+      </div>
     </div>
   </header>
 </template>
 
 <script>
+import login from "../components/LoginPage.vue"
+
 export default {
+  components:{
+    login
+  },
   name: "BaseHeader",
+  data(){
+    return{
+    }
+  }
 };
 </script>
 
