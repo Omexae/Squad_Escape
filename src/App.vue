@@ -4,11 +4,8 @@
     <base-footer></base-footer>
     <router-link to="/login">Go login</router-link>
     <router-link to="/register">Go to register</router-link>
-<<<<<<< HEAD
     <router-link to="/cart">Cart</router-link>
-=======
     <router-link to="/account">Go Account</router-link>
->>>>>>> 72a6d01ebea3ba13a691e9e276b8a275407628a5
   </div>
   <router-view></router-view>
 </template>
