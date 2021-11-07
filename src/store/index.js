@@ -3,7 +3,7 @@ import escapes from "./modules/escapes";
 import reservation from "./modules/reservation";
 export default createStore({
   state: {
-    IsLoggedIn: false,
+    isLoggedIn: false,
   },
   mutations: {},
   actions: {},

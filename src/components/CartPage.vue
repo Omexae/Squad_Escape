@@ -2,11 +2,11 @@
   <div v-for="escape in escapes" :key="escape.id">
     <p>{{ escape.id }} - {{ escape.title }}</p>
   </div>
-  <button>Contacter Groupe Escape</button>
+  <button @click="checkout">Contacter Groupe Escape</button>
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex";
+import { mapState, mapGetters, mapActions } from "vuex";
 export default {
   name: "Cart",
   computed: {
@@ -17,6 +17,7 @@ export default {
       escapes: "reservations",
     }),
   },
+  methods: mapActions("reservation", ["checkout"]),
 };
 </script>
 
