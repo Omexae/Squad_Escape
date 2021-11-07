@@ -1,18 +1,10 @@
 <template id="page">
   <div class="home">
     <EscapeBox
+      v-for="escape in escapes"
+      :key="escape.id"
+      :escape="escape"
       class="Box"
-      title="FUN"
-      message="C'est un escape game assez fun mais pas très drole."
-      prix="78"
-      url="https://images.unsplash.com/photo-1605870445919-838d190e8e1b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1172&q=80"
-    />
-    <EscapeBox
-      class="Box"
-      title="FUN"
-      message="C'est un escape game assez fun mais pas très drole."
-      prix="78"
-      url="https://images.unsplash.com/photo-1605870445919-838d190e8e1b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1172&q=80"
     />
   </div>
 </template>
@@ -20,23 +12,31 @@
 <script>
 // @ is an alias to /src
 import EscapeBox from "../components/HomePage/EscapeBox.vue";
+import { mapState, mapActions } from "vuex";
 export default {
   name: "Home",
   components: {
     EscapeBox,
+  },
+  computed: mapState({
+    escapes: (state) => state.escapes.all,
+  }),
+  methods: mapActions("reservation", ["pushEscapeToReservation"]),
+  created() {
+    this.$store.dispatch("escapes/getAllEscape");
   },
 };
 </script>
 
 <style scoped>
 .home {
-  background-color: #cccccc;
-  width: 100%;
+  width: 95%;
   height: 100%;
   display: flex;
+  flex-direction: column;
 }
 .Box {
-  padding: 20px;
   margin: 20px;
+  padding: 10px;
 }
 </style>
