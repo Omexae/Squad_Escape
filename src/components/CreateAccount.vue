@@ -24,7 +24,13 @@
         value="Sign in"
       />
       <br /><br />
-      <a href="#">Forgot Password</a>
+      <input
+        type="button"
+        name="logto"
+        id="logto"
+        @click="$router.push({ name: 'login' })"
+        value="Already have an account ?"
+      />
     </form>
   </div>
 </template>
@@ -69,7 +75,8 @@ label {
   border-radius: 3px;
   padding-left: 8px;
 }
-#createacc {
+#createacc,
+#logto {
   width: 300px;
   height: 30px;
   border: none;
