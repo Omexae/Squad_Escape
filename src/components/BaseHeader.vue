@@ -1,7 +1,13 @@
 <template>
   <header class="base-header">
     <div class="header-content">
-      <input type="button" name="HomeBtn" id="HomeBtn" @click="$router.push({name: 'Home'})" value="Accueil" />
+      <input
+        type="button"
+        name="HomeBtn"
+        id="HomeBtn"
+        @click="$router.push({ name: 'Home' })"
+        value="Accueil"
+      />
       <div class="separator" />
       <div class="logo">LOGO</div>
       <div class="separator" />
@@ -11,30 +17,36 @@
         <login-page @logUpdate="Update"></login-page>
       </div>
       <div v-else>
-        <input type="button" name="AccBtn" id="AccBtn" @click="$router.push({name: 'AccountPage'})" value="Compte" />
+        <input
+          type="button"
+          name="AccBtn"
+          id="AccBtn"
+          @click="$router.push({ name: 'AccountPage' })"
+          value="Compte"
+        />
       </div>
     </div>
   </header>
 </template>
 
 <script>
-import LoginPage from "../components/LoginPage.vue"
+import LoginPage from "../components/LoginPage.vue";
 
 export default {
-  components:{
-    LoginPage
+  components: {
+    LoginPage,
   },
   name: "BaseHeader",
-  data(){
-    return{
-      LoggedIn:false,
-    }
+  data() {
+    return {
+      LoggedIn: false,
+    };
   },
-  methods:{
-    Update(){
+  methods: {
+    Update() {
       this.LoggedIn = true;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -62,7 +74,8 @@ export default {
 .logo {
   color: aliceblue;
 }
-#HomeBtn, #AccBtn {
+#HomeBtn,
+#AccBtn {
   width: 300px;
   height: 15px;
   border: none;

@@ -6,17 +6,42 @@
       <div class="loginform">
         <form id="loginform" method="get">
           <label><b>User Name </b> </label>
-          <input type="text" name="username" v-model="input.username" id="Username" placeholder="Username" />
+          <input
+            type="text"
+            name="username"
+            v-model="input.username"
+            id="Username"
+            placeholder="Username"
+          />
           <br /><br />
           <label><b>Password </b> </label>
-          <input type="password" name="password" v-model="input.password" id="Password" placeholder="Password" />
+          <input
+            type="password"
+            name="password"
+            v-model="input.password"
+            id="Password"
+            placeholder="Password"
+          />
           <br /><br />
-          <input type="button" name="log" id="Log" v-on:click="login()" @click="$router.push({name: 'Home'})" value="Log In Here" />
+          <input
+            type="button"
+            name="log"
+            id="Log"
+            v-on:click="login()"
+            @click="$router.push({ name: 'Home' })"
+            value="Log In Here"
+          />
           <br /><br />
           <input type="checkbox" id="Check" />
           <span>Remember me</span>
           <br /><br />
-          <input type="button" name="reg" id="reg" @click="regpop" value="Don't have an account ?"/>
+          <input
+            type="button"
+            name="reg"
+            id="reg"
+            @click="regpop"
+            value="Don't have an account ?"
+          />
         </form>
       </div>
     </div>
@@ -27,41 +52,45 @@
 </template>
 
 <script>
-import CreateAccount from './CreateAccount.vue';
+import CreateAccount from "./CreateAccount.vue";
 export default {
   components: { CreateAccount },
   name: "login",
-  emits: ['logUpdate'],
+  emits: ["logUpdate"],
   data() {
     return {
-        input: {
-                  username: "",
-                  password: ""
-                },
-        IsLoggedIn : false,
-        accountreg : false,
-            }
-        },
-        methods: {
-            login() {
-                if(this.input.username != "" && this.input.password != "") {
-                    if(this.input.username == "user"/*this.$parent.mockAccount.username*/ && this.input.password == "password"/*this.$parent.mockAccount.password*/) {
-                        //this.$emit("authenticated", true);
-                        console.log("connected")
-                        this.IsLoggedIn = true;
-                        this.$emit('logUpdate');
-                        console.log(this.IsLoggedIn);
-                    } else {
-                        console.log("The username and / or password is incorrect");
-                    }
-                } else {
-                    console.log("A username and password must be present");
-                }
-            },
-            regpop(){
-              this.accountreg = true;
-            }
+      input: {
+        username: "",
+        password: "",
+      },
+      IsLoggedIn: false,
+      accountreg: false,
+    };
+  },
+  methods: {
+    login() {
+      if (this.input.username != "" && this.input.password != "") {
+        if (
+          this.input.username == "user" /*this.$parent.mockAccount.username*/ &&
+          this.input.password ==
+            "password" /*this.$parent.mockAccount.password*/
+        ) {
+          //this.$emit("authenticated", true);
+          console.log("connected");
+          this.IsLoggedIn = true;
+          this.$emit("logUpdate");
+          console.log(this.IsLoggedIn);
+        } else {
+          console.log("The username and / or password is incorrect");
         }
+      } else {
+        console.log("A username and password must be present");
+      }
+    },
+    regpop() {
+      this.accountreg = true;
+    },
+  },
 };
 </script>
 
@@ -98,7 +127,8 @@ label {
   border-radius: 3px;
   padding-left: 8px;
 }
-#Log, #reg {
+#Log,
+#reg {
   width: 300px;
   height: 30px;
   border: none;
