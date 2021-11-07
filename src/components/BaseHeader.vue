@@ -12,9 +12,7 @@
       <div class="logo">LOGO</div>
       <div class="separator" />
       <div v-if="!this.$store.state.IsLoggedIn">
-        <font-awesome-icon class="icon" :icon="['fas', 'user']" />
         <div>Not yet logged in</div>
-        <!--<login-page @logUpdate="Update"></login-page>-->
       </div>
       <div v-else>
         <input
