@@ -68,7 +68,8 @@ export default {
   color: #42b983;
 }
 #accto,
-#carto {
+#carto,
+#logout {
   width: 300px;
   height: 30px;
   border: none;
