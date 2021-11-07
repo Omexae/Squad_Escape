@@ -1,7 +1,7 @@
 <template>
   <header class="base-header">
     <div class="header-content">
-      <a href="#">Home</a>
+      <input type="button" name="HomeBtn" id="HomeBtn" @click="$router.push({name: 'Home'})" value="Accueil" />
       <div class="separator" />
       <div class="logo">LOGO</div>
       <div class="separator" />
@@ -10,7 +10,7 @@
         Not yet logged in
       </div>
       <div v-else>
-        Account
+        <input type="button" name="AccBtn" id="AccBtn" @click="$router.push({name: 'AccountPage'})" value="Compte" />
       </div>
     </div>
   </header>
@@ -54,5 +54,13 @@ export default {
 }
 .logo {
   color: aliceblue;
+}
+#HomeBtn, #AccBtn {
+  width: 300px;
+  height: 15px;
+  border: none;
+  border-radius: 17px;
+  color: white;
+  background-color: blue;
 }
 </style>
