@@ -75,10 +75,10 @@ export default {
           console.log(this.$store.state.IsLoggedIn);
           this.$router.push({ name: "Home" });
         } else {
-          console.log("Both password must be identical");
+          alert("Both password must be identical");
         }
       } else {
-        console.log("Please fill all entry");
+        alert("Please fill all entry");
       }
     },
   },
