@@ -28,7 +28,6 @@
             name="log"
             id="Log"
             v-on:click="login()"
-            @click="$router.push({ name: 'Home' })"
             value="Log In Here"
           />
           <br /><br />
@@ -61,14 +60,13 @@ export default {
     login() {
       if (this.input.username != "" && this.input.password != "") {
         if (
-          this.input.username == "user" /*this.$parent.mockAccount.username*/ &&
-          this.input.password ==
-            "password" /*this.$parent.mockAccount.password*/
+          this.input.username == "user" &&
+          this.input.password == "password"
         ) {
-          //this.$emit("authenticated", true);
           console.log("connected");
           this.$store.state.IsLoggedIn = true;
           console.log(this.$store.state.IsLoggedIn);
+          this.$router.push({ name: "Home" });
         } else {
           console.log("The username and / or password is incorrect");
         }
