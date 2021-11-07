@@ -1,19 +1,40 @@
 <template>
   <header class="base-header">
     <div class="header-content">
-      <font-awesome-icon class="icon" :icon="['fas', 'home']" /> Home
+      <input type="button" name="HomeBtn" id="HomeBtn" @click="$router.push({name: 'Home'})" value="Accueil" />
       <div class="separator" />
       <div class="logo">LOGO</div>
       <div class="separator" />
-      <font-awesome-icon class="icon" :icon="['fas', 'user']" />
-      Not yet logged in
+      <div v-if="!this.LoggedIn">
+        <font-awesome-icon class="icon" :icon="['fas', 'user']" />
+        <div>Not yet logged in</div>
+        <login-page @logUpdate="Update"></login-page>
+      </div>
+      <div v-else>
+        <input type="button" name="AccBtn" id="AccBtn" @click="$router.push({name: 'AccountPage'})" value="Compte" />
+      </div>
     </div>
   </header>
 </template>
 
 <script>
+import LoginPage from "../components/LoginPage.vue"
+
 export default {
+  components:{
+    LoginPage
+  },
   name: "BaseHeader",
+  data(){
+    return{
+      LoggedIn:false,
+    }
+  },
+  methods:{
+    Update(){
+      this.LoggedIn = true;
+    }
+  }
 };
 </script>
 
@@ -40,5 +61,13 @@ export default {
 }
 .logo {
   color: aliceblue;
+}
+#HomeBtn, #AccBtn {
+  width: 300px;
+  height: 15px;
+  border: none;
+  border-radius: 17px;
+  color: white;
+  background-color: blue;
 }
 </style>

@@ -1,36 +1,72 @@
 <template>
   <div>
-    <div id="Form">
+    <div v-if="!accountreg" id="Form">
       <h2>Login Page</h2>
       <br />
-      <div class="login">
-        <form id="login" method="get">
+      <div class="loginform">
+        <form id="loginform" method="get">
           <label><b>User Name </b> </label>
-          <input type="text" name="Uname" id="Uname" placeholder="Username" />
+          <input type="text" name="username" v-model="input.username" id="Username" placeholder="Username" />
           <br /><br />
           <label><b>Password </b> </label>
-          <input type="Password" name="Pass" id="Pass" placeholder="Password" />
+          <input type="password" name="password" v-model="input.password" id="Password" placeholder="Password" />
           <br /><br />
-          <input type="button" name="log" id="log" value="Log In Here" />
+          <input type="button" name="log" id="Log" v-on:click="login()" @click="$router.push({name: 'Home'})" value="Log In Here" />
           <br /><br />
-          <input type="checkbox" id="check" />
+          <input type="checkbox" id="Check" />
           <span>Remember me</span>
           <br /><br />
-          Forgot <a href="#">Password</a>
+          <input type="button" name="reg" id="reg" @click="regpop" value="Don't have an account ?"/>
         </form>
       </div>
+    </div>
+    <div v-else>
+      <create-account></create-account>
     </div>
   </div>
 </template>
 
 <script>
+import CreateAccount from './CreateAccount.vue';
 export default {
-  name: "LoginPage",
+  components: { CreateAccount },
+  name: "login",
+  emits: ['logUpdate'],
+  data() {
+    return {
+        input: {
+                  username: "",
+                  password: ""
+                },
+        IsLoggedIn : false,
+        accountreg : false,
+            }
+        },
+        methods: {
+            login() {
+                if(this.input.username != "" && this.input.password != "") {
+                    if(this.input.username == "user"/*this.$parent.mockAccount.username*/ && this.input.password == "password"/*this.$parent.mockAccount.password*/) {
+                        //this.$emit("authenticated", true);
+                        console.log("connected")
+                        this.IsLoggedIn = true;
+                        this.$emit('logUpdate');
+                        console.log(this.IsLoggedIn);
+                    } else {
+                        console.log("The username and / or password is incorrect");
+                    }
+                } else {
+                    console.log("A username and password must be present");
+                }
+            },
+            regpop(){
+              this.accountreg = true;
+            }
+        }
 };
 </script>
 
 <style>
-.login {
+.loginform {
   width: 382px;
   overflow: hidden;
   margin: auto;
@@ -48,21 +84,21 @@ label {
   color: #08ffd1;
   font-size: 17px;
 }
-#Uname {
+#Username {
   width: 300px;
   height: 30px;
   border: none;
   border-radius: 3px;
   padding-left: 8px;
 }
-#Pass {
+#Password {
   width: 300px;
   height: 30px;
   border: none;
   border-radius: 3px;
   padding-left: 8px;
 }
-#log {
+#Log, #reg {
   width: 300px;
   height: 30px;
   border: none;
