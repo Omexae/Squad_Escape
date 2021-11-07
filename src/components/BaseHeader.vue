@@ -11,10 +11,10 @@
       <div class="separator" />
       <div class="logo">LOGO</div>
       <div class="separator" />
-      <div v-if="!this.LoggedIn">
+      <div v-if="!this.$store.state.IsLoggedIn">
         <font-awesome-icon class="icon" :icon="['fas', 'user']" />
         <div>Not yet logged in</div>
-        <login-page @logUpdate="Update"></login-page>
+        <!--<login-page @logUpdate="Update"></login-page>-->
       </div>
       <div v-else>
         <input
@@ -30,17 +30,11 @@
 </template>
 
 <script>
-import LoginPage from "../components/LoginPage.vue";
-
 export default {
-  components: {
-    LoginPage,
-  },
+  components: {},
   name: "BaseHeader",
   data() {
-    return {
-      LoggedIn: false,
-    };
+    return {};
   },
   methods: {
     Update() {

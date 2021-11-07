@@ -63,7 +63,6 @@ export default {
         username: "",
         password: "",
       },
-      IsLoggedIn: false,
       accountreg: false,
     };
   },
@@ -77,9 +76,8 @@ export default {
         ) {
           //this.$emit("authenticated", true);
           console.log("connected");
-          this.IsLoggedIn = true;
-          this.$emit("logUpdate");
-          console.log(this.IsLoggedIn);
+          this.$store.state.IsLoggedIn = true;
+          console.log(this.$store.state.IsLoggedIn);
         } else {
           console.log("The username and / or password is incorrect");
         }
