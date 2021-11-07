@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="Form">
+    <div v-if="!accountreg" id="Form">
       <h2>Login Page</h2>
       <br />
       <div class="loginform">
@@ -16,16 +16,22 @@
           <input type="checkbox" id="Check" />
           <span>Remember me</span>
           <br /><br />
-          <a href="#">Forgot Password</a>
+          <input type="button" name="reg" id="reg" @click="regpop" value="Don't have an account ?"/>
         </form>
       </div>
+    </div>
+    <div v-else>
+      <create-account></create-account>
     </div>
   </div>
 </template>
 
 <script>
+import CreateAccount from './CreateAccount.vue';
 export default {
+  components: { CreateAccount },
   name: "login",
+  emits: ['logUpdate'],
   data() {
     return {
         input: {
@@ -33,6 +39,7 @@ export default {
                   password: ""
                 },
         IsLoggedIn : false,
+        accountreg : false,
             }
         },
         methods: {
@@ -42,6 +49,7 @@ export default {
                         //this.$emit("authenticated", true);
                         console.log("connected")
                         this.IsLoggedIn = true;
+                        this.$emit('logUpdate');
                         console.log(this.IsLoggedIn);
                     } else {
                         console.log("The username and / or password is incorrect");
@@ -49,6 +57,9 @@ export default {
                 } else {
                     console.log("A username and password must be present");
                 }
+            },
+            regpop(){
+              this.accountreg = true;
             }
         }
 };
@@ -87,7 +98,7 @@ label {
   border-radius: 3px;
   padding-left: 8px;
 }
-#Log {
+#Log, #reg {
   width: 300px;
   height: 30px;
   border: none;

@@ -5,9 +5,10 @@
       <div class="separator" />
       <div class="logo">LOGO</div>
       <div class="separator" />
-      <div v-if="IsLoggedIn == false">
+      <div v-if="!this.LoggedIn">
         <font-awesome-icon class="icon" :icon="['fas', 'user']" />
-        Not yet logged in
+        <div>Not yet logged in</div>
+        <login-page @logUpdate="Update"></login-page>
       </div>
       <div v-else>
         <input type="button" name="AccBtn" id="AccBtn" @click="$router.push({name: 'AccountPage'})" value="Compte" />
@@ -17,15 +18,21 @@
 </template>
 
 <script>
-import login from "../components/LoginPage.vue"
+import LoginPage from "../components/LoginPage.vue"
 
 export default {
   components:{
-    login
+    LoginPage
   },
   name: "BaseHeader",
   data(){
     return{
+      LoggedIn:false,
+    }
+  },
+  methods:{
+    Update(){
+      this.LoggedIn = true;
     }
   }
 };
