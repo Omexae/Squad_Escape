@@ -4,6 +4,7 @@
     <base-footer></base-footer>
     <router-link to="/loginpage">Go login</router-link>
     <router-link to="/register">Go to register</router-link>
+    <router-link to="/cart">Cart</router-link>
   </div>
   <router-view></router-view>
 </template>

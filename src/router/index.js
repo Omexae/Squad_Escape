@@ -20,6 +20,11 @@ const routes = [
     name: "Register Page",
     component: () => import("../components/CreateAccount.vue"),
   },
+  {
+    path: "/cart",
+    name: "Cart page",
+    component: () => import("../components/CartPage.vue"),
+  },
 ];
 
 const router = createRouter({

@@ -7,7 +7,7 @@ const state = () => ({
 
 const getters = {
   reservations: (state, getters, rootState) => {
-    return state.rserve.map(({ id }) => {
+    return state.reserve.map(({ id }) => {
       const escape = rootState.escapes.all.find((escape) => escape.id === id);
       return {
         id: escape.id,
