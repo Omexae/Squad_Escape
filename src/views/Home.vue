@@ -21,7 +21,7 @@ export default {
   computed: mapState({
     escapes: (state) => state.escapes.all,
   }),
-  methods: mapActions("cart", ["addProductToCart"]),
+  methods: mapActions("reservation", ["pushEscapeToReservation"]),
   created() {
     this.$store.dispatch("escapes/getAllEscape");
   },

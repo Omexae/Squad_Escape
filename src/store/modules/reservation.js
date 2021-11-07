@@ -1,5 +1,3 @@
-import escapes from "../../api/Escape";
-
 const state = () => ({
   reserve: [],
   done: null,
@@ -18,23 +16,12 @@ const getters = {
 };
 
 const actions = {
-  checkout({ commit, state }, products) {
-    const savedCartItems = [...state.reserve];
-    commit("setCheckoutStatus", null);
-    commit("setCartItems", { items: [] });
-    escapes.buyProducts(
-      products,
-      () => commit("setCheckoutStatus", "successful"),
-      () => {
-        commit("setCheckoutStatus", "failed");
-        // rollback to the cart saved before sending the request
-        commit("setCartItems", { items: savedCartItems });
-      }
-    );
-  },
   addEscapeToReservation({ commit }, escape) {
     commit("setCheckoutStatus", null);
     commit("pushEscapeToReservation", { id: escape.id });
+  },
+  checkout({ commit }) {
+    commit("setReservationNull");
   },
 };
 
@@ -51,6 +38,10 @@ const mutations = {
   },
   setReservationEscape(state, { reserve }) {
     state.reserve = reserve;
+  },
+  setReservationNull(state) {
+    state.reserve = [];
+    alert("Message envoyé");
   },
 };
 
